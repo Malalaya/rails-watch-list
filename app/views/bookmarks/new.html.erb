@@ -1,4 +1,3 @@
-
 <div class="container">
   <h1>Add Movie</h1>
 
@@ -7,10 +6,10 @@
   <br>
 
   <div>
-    <% if @list %>
-      <%= link_to "Back to list", list_path(@list.id) %>
+    <% if @bookmark.list.present? %>
+      <%= link_to "Back to list", list_path(@bookmark.list) %>
     <% else %>
-      <%= link_to "Back to list", list_path(@list)%>
+      <%= link_to "Back to lists", lists_path %>
     <% end %>
   </div>
 </div>

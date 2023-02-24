@@ -6,19 +6,13 @@ class ListsController < ApplicationController
   end
 
   def show
+    @list = List.find(params[:id])
     @movies = Movie.all
-    # @movies = @list.movies
   end
 
   def new
     @list = List.new
   end
-
-  # def create
-  #   @list = List.new(list_params)
-  #   @list.save
-  #   redirect_to lists_path
-  # end
 
   def create
     @list = List.new(list_params)
@@ -36,11 +30,6 @@ class ListsController < ApplicationController
 
   def edit
   end
-
-  # def update
-  #   @list.update(list_params)
-  #   redirect_to list_path(@list)
-  # end
 
   def update
     respond_to do |format|

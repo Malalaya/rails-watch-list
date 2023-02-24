@@ -10,7 +10,7 @@
 </ul>
 
 <p>
-  <%= link_to 'Your List', list_path %>
+  <%= link_to "Back to list", list_path(@list.present? ? @list.id : nil) %>
 </p>
 
 <%# <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' } %> %>
