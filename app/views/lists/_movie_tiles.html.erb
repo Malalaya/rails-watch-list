@@ -1,0 +1,15 @@
+<div class=container>
+  <div class="cards">
+    <% movies = @movies || [] %>
+    <% movies.each do |movie| %>
+      <div class="card-category">
+        <img src="<%= movie.poster_url %>" style="width: 400px; height: 300px; object-fit: fill;">
+        <div class=container>
+          <h4><p><%= movie.title %></p></h2>
+          <p><%= movie.overview %></p>
+          <p><%= movie.rating %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

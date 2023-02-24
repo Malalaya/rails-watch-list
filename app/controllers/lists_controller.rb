@@ -14,19 +14,46 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
+  # def create
+  #   @list = List.new(list_params)
+  #   @list.save
+  #   redirect_to lists_path
+  # end
+
   def create
     @list = List.new(list_params)
-    @list.save
-    redirect_to lists_path
+
+    respond_to do |format|
+      if @list.save
+        format.html { redirect_to list_url(@list), notice: "List was successfully created." }
+        format.json { render :show, status: :created, location: @list }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @list.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
   end
 
+  # def update
+  #   @list.update(list_params)
+  #   redirect_to list_path(@list)
+  # end
+
   def update
-    @list.update(list_params)
-    redirect_to list_path(@list)
+    respond_to do |format|
+      if @list.update(list_params)
+        format.html { redirect_to list_url(@list), notice: "list was successfully updated." }
+        format.json { render :show, status: :ok, location: @list }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @list.errors, status: :unprocessable_entity }
+      end
+    end
   end
+
 
   def destroy
     @list.destroy
@@ -37,7 +64,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:title, :content)
+    params.require(:list).permit(:name)
   end
 
   def set_list

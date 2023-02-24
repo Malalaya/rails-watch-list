@@ -1,0 +1,16 @@
+<h1>Bookmarks</h1>
+
+<ul>
+  <% @bookmarks.each do |bookmark| %>
+    <li>
+      <%= link_to bookmark.title, bookmark.url, target: '_blank' %>
+      <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
+<p>
+  <%= link_to 'Your List', list_path %>
+</p>
+
+<%# <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' } %> %>

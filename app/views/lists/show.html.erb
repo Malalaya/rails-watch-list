@@ -1,20 +1,26 @@
-<div class=container>
-  <h1><%= @list.name %></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1524641234638-4c303747c310?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80);">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <h1> </h1>
+    </div>
+
+    <div class="col">
+      <button class="button-1" role="button"><%= link_to "Add a Movie", new_bookmark_path %></button>
+    </div>
+  </div>
+</div>
+
+<div>
+  <%= render 'movie_tiles' %>
 </div>
 
 <div class=container>
-  <div class="cards">
-    <% @movies.each do |movie| %>
-      <div class="card-category">
-        <img src="<%= movie.poster_url %>" style="width: 400px; height: 300px; object-fit: fill;">
-        <div class=container>
-          <h4><p><%= movie.title %></p></h2>
-          <p><%= movie.overview %></p>
-          <p><%= movie.rating %></p>
-        </div>
-      </div>
-    <% end %>
-  </div>
   <%= link_to "Delete", list_path(@list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
   <%= link_to "Back", lists_path %>
 </div>

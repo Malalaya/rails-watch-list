@@ -1,0 +1,16 @@
+
+<div class="container">
+  <h1>Add Movie</h1>
+
+  <%= render "form", bookmark: @bookmark %>
+
+  <br>
+
+  <div>
+    <% if @list %>
+      <%= link_to "Back to list", list_path(@list.id) %>
+    <% else %>
+      <%= link_to "Back to list", list_path(@list)%>
+    <% end %>
+  </div>
+</div>
