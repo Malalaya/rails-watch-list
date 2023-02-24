@@ -7,16 +7,15 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
-Clean the database
-puts 'Cleaning database...'
-movie.destroy_all
+# puts 'Cleaning database...'
+# movie.destroy_all
 
 puts 'Creating movies...'
 10.times do
   movie = Movie.new(
     title: Faker::Movie.title,
     overview: Faker::Movie.quote,
-    poster_url: faker.image.abstract(),
+    poster_url: "https://source.unsplash.com/collection/8884129/?#{rand(200)}",
     rating: Faker::Number.between(from: 1, to: 9)
   )
   movie.save!
@@ -24,13 +23,12 @@ end
 
 puts 'Finished!'
 
-# # Create 6 fake lists
-# puts 'Creating lists...'
-# 6.times do
-#   list = List.new(
-#     name: Faker::Book.genre
-#   )
-#   list.save!
-# end
+puts 'Creating lists...'
+6.times do
+  list = List.new(
+    name: Faker::Book.genre
+  )
+  list.save!
+end
 
-# puts 'Finished!'
+puts 'Finished!'

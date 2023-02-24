@@ -1,12 +1,17 @@
 <div class=container>
   <h1><%= @list.name %></h1>
+</div>
+
+<div class=container>
   <div class="cards">
     <% @movies.each do |movie| %>
       <div class="card-category">
-        <img src="<%= "https://source.unsplash.com/collection/8884129/?#{rand(600)}" %>" style="width: 400px; height: 300px; object-fit: fill;">
-        <h4><p><%= movie.title %></p></h2>
-        <p><%= movie.overview %></p>
-        <p><%= movie.rating %></p>
+        <img src="<%= movie.poster_url %>" style="width: 400px; height: 300px; object-fit: fill;">
+        <div class=container>
+          <h4><p><%= movie.title %></p></h2>
+          <p><%= movie.overview %></p>
+          <p><%= movie.rating %></p>
+        </div>
       </div>
     <% end %>
   </div>
