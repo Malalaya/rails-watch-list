@@ -1,0 +1,7 @@
+<h1>All Bookmarks</h1>
+
+<ul>
+  <% @Bookmarks.each do |list| %>
+    <li><%= link_to list.title, list_path(list) %></li>
+  <% end %>
+</ul>

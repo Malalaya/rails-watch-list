@@ -1,0 +1,15 @@
+<div class=container>
+  <h1><%= @list.name %></h1>
+  <div class="cards">
+    <% @movies.each do |movie| %>
+      <div class="card-category">
+        <img src="<%= "https://source.unsplash.com/collection/8884129/?#{rand(600)}" %>" style="width: 400px; height: 300px; object-fit: fill;">
+        <h4><p><%= movie.title %></p></h2>
+        <p><%= movie.overview %></p>
+        <p><%= movie.rating %></p>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Delete", list_path(@list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+  <%= link_to "Back", lists_path %>
+</div>
